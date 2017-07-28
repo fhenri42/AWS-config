@@ -1,3 +1,4 @@
+cd ~/
 sudo apt-get install curl
 sudo apt-get install node
 npm install -g yarn
