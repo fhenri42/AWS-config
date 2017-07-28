@@ -1,6 +1,6 @@
 cd ~/
 sudo apt-get install curl
-sudo apt-get install node
+sudo apt-get install nodejs
 npm install -g yarn
 git clone https://github.com/tj/n.git
 cd n/bin  && sudo n stable cd 
