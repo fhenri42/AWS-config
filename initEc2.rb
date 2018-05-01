@@ -34,6 +34,9 @@ end
 puts "installation of basique sowftware done, will you like to clone a project ? [Y/n]"
 quest = gets.chomp
 
+puts "server side application 1 client side application 2 ? [1/2]"
+server = gets.chomp
+
 if quest != 'n'
   puts "github url: "
   gitUrl = gets.chomp
@@ -43,11 +46,17 @@ if quest != 'n'
     ssh = Net::SSH.start(hostname, username, :keys => fileName)
     clone = ssh.exec!("git clone #{gitUrl} #{projectName} && cd #{projectName}")
     yarnInstall = ssh.exec!("yarn")
-    pm2 = ssh.exec!(`pm2 start yarn -- "start"`)
-    pm2Restart = ssh.exec!(`pm2 restart yarn --name "#{projectName}"`)
+    if server == '2'
+      yarnBuild = ssh.exec!("yarn build")
+    end
+    if server == '1'
+      pm2 = ssh.exec!(`pm2 start yarn -- "start"`)
+      pm2Restart = ssh.exec!(`pm2 restart yarn --name "#{projectName}"`)
+    end
     ssh.close
     puts clone
     puts yarnInstall
+    puts yarnBuild
     puts pm2
     puts pm2Restart
   rescue
