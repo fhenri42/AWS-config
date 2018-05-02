@@ -56,9 +56,6 @@ if quest != 'n'
     ssh.close
     puts clone
     puts yarnInstall
-    puts yarnBuild
-    puts pm2
-    puts pm2Restart
   rescue
     puts "Fail to connect to #{username}/#{hostname}"
     exit
