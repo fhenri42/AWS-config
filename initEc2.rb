@@ -10,7 +10,7 @@ fileName = gets.chomp
 
 @installZsh = 'sudo apt-get install zsh'
 @installMyZsh = 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
-@installNodeJS = 'git clone https://github.com/tj/n.git cd n/bin  && sudo ./n stable'
+@installNodeJS = 'git clone https://github.com/tj/n.git && cd n/bin  && sudo ./n stable'
 @installNgnix = 'sudo apt-get install nginx'
 @installPm2 = 'sudo npm -g install pm2'
 
